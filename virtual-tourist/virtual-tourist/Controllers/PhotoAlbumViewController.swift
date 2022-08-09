@@ -148,6 +148,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegate, UICo
           if let imageData = photoData.imageData {
                 let image = UIImage(data: imageData)!
                 cell.imageView.image = image
+                cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(deleteImage(_:))))
             }
         }
         newCollectionButton.isEnabled = true
@@ -159,6 +160,17 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegate, UICo
         collectionView.delegate = self
         collectionView.allowsMultipleSelection = true
     }
+    
+    @objc func deleteImage(_ sender: UITapGestureRecognizer){
+        let location = sender.location(in: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: location)
+        if let index = indexPath {
+            print("Deleting index: \(index)!")
+            let photoData = self.fetchedResultsController.object(at: index)
+            self.dataController.viewContext.delete(photoData)
+       }
+    }
+    
 }
 
 extension PhotoAlbumViewController: NSFetchedResultsControllerDelegate {

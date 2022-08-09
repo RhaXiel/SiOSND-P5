@@ -8,7 +8,7 @@
 import Foundation
 
 class APIClient {
-    static let apiKey = "YOUR_API_KEY"
+    static let apiKey = "343b123f6745bbf350e0a6410417938f"
     
     enum Endpoints {
         static let base = "https://www.flickr.com/services/rest/?method=flickr.photos.search"
