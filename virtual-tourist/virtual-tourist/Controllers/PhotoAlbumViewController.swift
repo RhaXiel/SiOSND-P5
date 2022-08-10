@@ -168,6 +168,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDelegate, UICo
             print("Deleting index: \(index)!")
             let photoData = self.fetchedResultsController.object(at: index)
             self.dataController.viewContext.delete(photoData)
+            try! self.dataController.viewContext.save()
        }
     }
     

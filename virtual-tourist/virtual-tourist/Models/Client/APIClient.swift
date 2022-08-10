@@ -33,10 +33,10 @@ class APIClient {
     }
     
     class func randomizePageNumber(totalPicsAvailable: Int, maxNumPicsdisplayed: Int) -> Int {
-        let flickrLimit = 4000
-        let numberPages = min(totalPicsAvailable, flickrLimit) / maxNumPicsdisplayed
-        let randomPageNum = Int.random(in: 0...numberPages)
-        print("totalPicsAvaible is \(totalPicsAvailable), numPage is \(numberPages)",
+        //let flickrLimit = 4000
+        //let numberPages = min(totalPicsAvailable, flickrLimit/maxNumPicsdisplayed)
+        let randomPageNum = Int.random(in: 0...10)
+        print("totalPicsAvaible is \(totalPicsAvailable)",
              "randomPageNum is \(randomPageNum)" )
         
         return randomPageNum
